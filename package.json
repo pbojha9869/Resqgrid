@@ -2,7 +2,7 @@
   "name": "resqgrid",
   "version": "1.0.0",
   "private": true,
-  "description": "ResQGrid - Disaster Risk Intelligence & Response Platform (SIH 2026)",
+  "description": "ResQGrid - Disaster Risk Intelligence & Response Platform",
   "workspaces": [
     "backend",
     "frontend"
