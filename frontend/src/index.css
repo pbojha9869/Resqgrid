@@ -1,0 +1,225 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/*
+ * ResQGrid design system
+ * - Surfaces are plain white; structure comes from 1px slate borders.
+ * - No shadows, glows or lift effects on cards — hover only shifts border colour.
+ * - One accent colour (emerald) for primary actions and active states.
+ */
+
+@layer base {
+  html {
+    color-scheme: light;
+  }
+
+  body {
+    @apply bg-white text-slate-900 antialiased;
+    font-feature-settings: "cv11", "ss01";
+  }
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    @apply text-slate-900;
+  }
+
+  :focus-visible {
+    @apply outline outline-2 outline-offset-2 outline-emerald-500;
+  }
+}
+
+@layer components {
+  /* ---------- Surfaces ---------- */
+  .card {
+    @apply bg-white border border-slate-200 rounded-xl;
+  }
+
+  .card-interactive {
+    @apply card cursor-pointer text-left transition-colors hover:border-slate-300 hover:bg-slate-50/60;
+  }
+
+  .card-selected {
+    @apply border-emerald-500 bg-emerald-50/40 hover:border-emerald-500;
+  }
+
+  .panel {
+    @apply bg-slate-50 border border-slate-100 rounded-lg;
+  }
+
+  .divider {
+    @apply border-t border-slate-100;
+  }
+
+  /* ---------- Buttons ---------- */
+  .btn {
+    @apply inline-flex items-center justify-center gap-2 h-9 px-3.5 rounded-lg text-sm font-medium whitespace-nowrap
+      transition-colors disabled:opacity-50 disabled:pointer-events-none;
+  }
+
+  .btn-sm {
+    @apply h-8 px-3 text-xs gap-1.5;
+  }
+
+  .btn-primary {
+    @apply bg-emerald-600 text-white hover:bg-emerald-700;
+  }
+
+  .btn-secondary {
+    @apply bg-white text-slate-700 border border-slate-200 hover:bg-slate-50 hover:text-slate-900;
+  }
+
+  .btn-ghost {
+    @apply text-slate-600 hover:bg-slate-100 hover:text-slate-900;
+  }
+
+  .btn-danger {
+    @apply bg-red-600 text-white hover:bg-red-700;
+  }
+
+  .icon-btn {
+    @apply inline-flex items-center justify-center w-9 h-9 rounded-lg text-slate-500 hover:bg-slate-100 hover:text-slate-900 transition-colors;
+  }
+
+  /* ---------- Segmented control / filter chips ---------- */
+  .chip {
+    @apply inline-flex items-center gap-1.5 h-8 px-3 rounded-lg text-xs font-medium border border-slate-200 bg-white
+      text-slate-600 hover:bg-slate-50 hover:text-slate-900 transition-colors;
+  }
+
+  .chip-active {
+    @apply border-emerald-600 bg-emerald-600 text-white hover:bg-emerald-700 hover:text-white;
+  }
+
+  /* ---------- Badges ---------- */
+  .badge {
+    @apply inline-flex items-center gap-1 px-2 py-0.5 rounded-md text-[11px] font-semibold border whitespace-nowrap
+      border-slate-200 bg-slate-50 text-slate-600;
+  }
+
+  /* ---------- Forms ---------- */
+  .input {
+    @apply h-9 w-full rounded-lg border border-slate-200 bg-white px-3 text-sm text-slate-900 placeholder-slate-400
+      transition-colors hover:border-slate-300 focus:border-emerald-500 focus:outline-none;
+  }
+
+  textarea.input {
+    @apply h-auto py-2;
+  }
+
+  select.input {
+    @apply pr-8;
+  }
+
+  .label {
+    @apply block text-xs font-medium text-slate-600 mb-1.5;
+  }
+
+  /* ---------- Typography helpers ---------- */
+  .eyebrow {
+    @apply text-[11px] font-semibold uppercase tracking-wider text-slate-500;
+  }
+
+  .stat-value {
+    @apply text-2xl font-semibold tracking-tight text-slate-900 tabular-nums;
+  }
+}
+
+/* ---------- Leaflet (flat, light) ---------- */
+.leaflet-container {
+  background: #f8fafc;
+  font-family: inherit;
+}
+
+.leaflet-popup-content-wrapper {
+  background: #ffffff;
+  color: #0f172a;
+  border-radius: 10px;
+  border: 1px solid #e2e8f0;
+  box-shadow: none;
+}
+
+.leaflet-popup-content {
+  margin: 12px 14px;
+}
+
+.leaflet-popup-tip {
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  box-shadow: none;
+}
+
+.leaflet-popup-close-button {
+  color: #94a3b8 !important;
+}
+
+.leaflet-bar,
+.leaflet-touch .leaflet-bar {
+  border: 1px solid #e2e8f0 !important;
+  box-shadow: none !important;
+  border-radius: 8px !important;
+  overflow: hidden;
+}
+
+.leaflet-bar a {
+  background: #ffffff !important;
+  color: #334155 !important;
+  border-bottom-color: #e2e8f0 !important;
+}
+
+.leaflet-bar a:hover {
+  background: #f1f5f9 !important;
+  color: #0f172a !important;
+}
+
+.leaflet-control-attribution {
+  background: rgba(255, 255, 255, 0.9) !important;
+  color: #64748b !important;
+}
+
+.leaflet-control-attribution a {
+  color: #047857 !important;
+}
+
+/* Pulsing ring for severe (HIGH/EXTREME) hazard markers */
+.pulse-marker {
+  animation: markerPulse 1.6s ease-in-out infinite;
+}
+
+@keyframes markerPulse {
+  0%,
+  100% {
+    fill-opacity: 0.7;
+    stroke-width: 2;
+  }
+  50% {
+    fill-opacity: 1;
+    stroke-width: 5;
+  }
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+  border-radius: 9999px;
+  border: 3px solid #ffffff;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #94a3b8;
+}
+
+/* Mute the basemap so hazard markers carry the colour */
+.leaflet-tile-pane {
+  filter: saturate(0.45) brightness(1.04);
+}

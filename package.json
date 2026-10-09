@@ -1,0 +1,20 @@
+{
+  "name": "resqgrid",
+  "version": "1.0.0",
+  "private": true,
+  "description": "ResQGrid - Disaster Risk Intelligence & Response Platform (SIH 2026)",
+  "workspaces": [
+    "backend",
+    "frontend"
+  ],
+  "scripts": {
+    "dev": "concurrently \"npm run dev -w backend\" \"npm run dev -w frontend\"",
+    "dev:backend": "npm run dev -w backend",
+    "dev:frontend": "npm run dev -w frontend",
+    "build": "npm run build -w backend && npm run build -w frontend",
+    "start": "npm run start -w backend"
+  },
+  "devDependencies": {
+    "concurrently": "^9.1.0"
+  }
+}
